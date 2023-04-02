@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <p><a href="index.html">
+      Home
+    </a>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Entre em contato</title>
+
+    <script src="index.js"></script>
+    
+    <!-- 
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("G7qtk4NYjaJ9zHP03");
+      })();
+    </script>
+    -->
+<!--============================ EMAIL JS ============================-->
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+
+    <script>
+        (function(){
+           emailjs.init("G7qtk4NYjaJ9zHP03");
+        })();
+     </script>
+     
+</head>
+<body>
+    <div class="container">
+        <form id="contact-form" action="" method="POST">
+            <h3>Entre em contato</h3>
+            <h2>Agende a sua sessão de fisioterapia.</h2>
+            <fieldset>
+                <input name='user_name' placeholder="Seu nome" type="text" tabindex="1" id="contact-name" required autofocus>
+            </fieldset> 
+            <fieldset>
+                <input name='user_email' placeholder="Seu email" type="email" tabindex="2" id="contact-email" required autofocus>
+            </fieldset>
+            <fieldset>
+                <textarea name='user_project' placeholder="Digite a sua mensagem" type="mensagem" tabindex="2" id="contact-message" required></textarea>
+            </fieldset>
+            <fieldset>
+                <button name="submit" type="submit" id="contact-submit" data-submit="....Sending">Enviar</button>
+            </fieldset>
+            <fieldset>
+                <p class="copyright">Todos os direitos reservados </p>
+            </fieldset>
+        </form>
+    </div>
+
+      
+    <!--============================ EMAIL JS ============================-->
+
+    
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+           event.preventDefault();
+           // Preencha os detalhes do email e envie-o usando o emailJS
+           emailjs.sendForm('service_37vog3i', 'template_zk1r29m', this)
+              .then(function() {
+                 alert('Email enviado com sucesso!');
+              }, function(error) {
+                 alert('Ocorreu um erro ao enviar o email: ', error);
+              });
+        });
+     </script>
+     
+     
+
+
+</body>
+</html>
